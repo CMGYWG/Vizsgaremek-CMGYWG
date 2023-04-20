@@ -1,0 +1,29 @@
+###
+GET http://localhost:8080/projects
+
+
+###
+GET http://localhost:8080/projects/3
+
+###
+POST http://localhost:8080/projects
+Content-Type: application/json
+
+{
+  "projectName" : "Ron",
+  "teamName" : "Ron",
+  "description" : "Ron",
+  "mentorIds" : [
+    1,
+    3,
+    4
+  ],
+  "studentIds" : [
+    1,
+    3,
+    4
+  ]
+}
+
+###
+DELETE http://localhost:8080/projects/2

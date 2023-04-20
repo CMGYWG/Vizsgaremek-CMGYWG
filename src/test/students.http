@@ -1,0 +1,31 @@
+###
+GET http://localhost:8080/students
+
+
+###
+GET http://localhost:8080/students/1
+
+###
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name" : "Harry",
+  "age" : 14,
+  "course" : "Magic",
+  "projectId" : 1
+}
+
+###
+DELETE http://localhost:8080/students/2
+
+###
+PUT http://localhost:8080/students/3
+Content-Type: application/json
+
+{
+  "name" : "gg",
+  "age" : 154,
+  "course" : "Black Magic",
+  "projectId" : 4
+}

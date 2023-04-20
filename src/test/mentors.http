@@ -1,0 +1,35 @@
+###
+GET http://localhost:8080/mentors
+
+
+###
+GET http://localhost:8080/mentors/2
+
+###
+PUT http://localhost:8080/mentors/2
+Content-Type: application/json
+
+{
+  "name" : "Harry Potter",
+  "projectIds" : [
+    2,
+    3,
+    5
+  ]
+}
+
+###
+DELETE http://localhost:8080/mentors/2
+
+###
+POST http://localhost:8080/mentors
+Content-Type: application/json
+
+{
+  "name" : "Ron",
+  "projectIds" : [
+    1,
+    3,
+    4
+  ]
+}
