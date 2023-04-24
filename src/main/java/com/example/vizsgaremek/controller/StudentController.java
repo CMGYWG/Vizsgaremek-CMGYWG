@@ -3,6 +3,7 @@ package com.example.vizsgaremek.controller;
 import com.example.vizsgaremek.model.Student;
 import com.example.vizsgaremek.model.dto.StudentDTO;
 import com.example.vizsgaremek.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public void save(@RequestBody StudentDTO studentDTO) {
+    public void save(@Valid @RequestBody StudentDTO studentDTO) {
         studentService.save(studentDTO);
     }
 
@@ -37,7 +38,7 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable("id") Long id, @RequestBody StudentDTO studentDTO) {
+    public void update(@PathVariable("id") Long id,@Valid @RequestBody StudentDTO studentDTO) {
         studentService.update(id, studentDTO);
     }
 }

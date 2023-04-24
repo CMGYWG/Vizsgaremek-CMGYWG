@@ -3,6 +3,7 @@ package com.example.vizsgaremek.controller;
 import com.example.vizsgaremek.model.Project;
 import com.example.vizsgaremek.model.dto.ProjectDTO;
 import com.example.vizsgaremek.service.ProjectService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class ProjectController {
     }
 
     @PostMapping
-    public void save(@RequestBody ProjectDTO projectDTO) {
+    public void save(@Valid @RequestBody ProjectDTO projectDTO) {
         projectService.save(projectDTO);
     }
 
@@ -37,7 +38,7 @@ public class ProjectController {
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable("id") Long id,@RequestBody ProjectDTO projectDTO) {
+    public void update(@PathVariable("id") Long id,@Valid @RequestBody ProjectDTO projectDTO) {
         projectService.update(id, projectDTO);
     }
 }
