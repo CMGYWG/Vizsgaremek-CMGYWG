@@ -84,18 +84,31 @@ public class ProjectService {
                             .removeIf(x -> x.getId() == id);
                     mentorDAO.save(mentorToUpdate);
                 });
-        students.removeIf(x->x.getId()==id);
-        project.setStudents(students);
+        project.getStudents()
+                .forEach(studentToUpdate -> {
+                    studentToUpdate.setProject(null);
+                    studentDAO.save(studentToUpdate);
+                });
+        project.setStudents(null);
+        project.setMentors(null);
         projectDAO.save(project);
-        student.setProject(null);
 
-        student.setName(studentDTO.getName());
-        student.setAge(studentDTO.getAge());
-        student.setCourse(studentDTO.getCourse());
+        List<Long> mentorIds = projectDTO.getMentorIds();
+        List<Long> studentIds = projectDTO.getStudentIds();
+        if (!mentorIds.isEmpty()) {
+            mentors = mentorDAO.findAllById(mentorIds);
+        }
+        if (!studentIds.isEmpty()) {
+            students = studentDAO.findAllById(studentIds);
+        }
+        project.setStudents(students);
+        project.setMentors(mentors);
+        project.setProjectName(projectDTO.getProjectName());
+        project.setDescription(projectDTO.getDescription());
+        project.setTeamName(projectDTO.getTeamName());
 
-
-        student.setProject(projectDAO.findById(studentDTO.getProjectId()).orElseThrow());
-        project.getStudents().add(student);
-        studentDAO.save(student);
+        students.forEach(x->x.setProject(project));
+        mentors.forEach(a -> a.getProjects().add(project));
+        projectDAO.save(project);
     }
 }
