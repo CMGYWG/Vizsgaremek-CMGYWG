@@ -27,14 +27,14 @@ class StudentUnitTests {
     @Test
     void getAllStudents() {
         List<Student> students = studentService.findAll();
-        Assertions.assertEquals(4, students.size());
+        Assertions.assertEquals(5, students.size());
     }
 
     @Test
     void findStudentById() {
         Student actualStudent = studentService.findById(1L);
         Project project = projectDAO.findById(actualStudent.getProject().getId()).orElseThrow();
-        Student expectedStudent = new Student(1L, "ASD1", 21, "asd1", project);
+        Student expectedStudent = new Student(1L, "Matyi", 21, "Engineer", project);
         Assertions.assertEquals(expectedStudent.getId(), actualStudent.getId());
         Assertions.assertEquals(expectedStudent.getAge(), actualStudent.getAge());
         Assertions.assertEquals(expectedStudent.getName(), actualStudent.getName());
@@ -45,16 +45,16 @@ class StudentUnitTests {
     void deleteStudentById() {
         studentService.deleteById(1L);
         List<Student> students = studentService.findAll();
-        Assertions.assertEquals(3, students.size());
+        Assertions.assertEquals(4, students.size());
     }
 
     @Test
     void saveStudent() {
         studentService.save(new StudentDTO("John", 11, "IT", 1L));
         List<Student> students = studentService.findAll();
-        Assertions.assertEquals(5, students.size());
+        Assertions.assertEquals(6, students.size());
 
-        Student student = studentService.findById(5L);
+        Student student = studentService.findById(6L);
         Assertions.assertEquals("asd", student.getProject().getProjectName());
     }
 
@@ -62,7 +62,7 @@ class StudentUnitTests {
     void updateStudent() {
         studentService.update(1L, new StudentDTO("John", 11, "IT", 1L));
         List<Student> students = studentService.findAll();
-        Assertions.assertEquals(4, students.size());
+        Assertions.assertEquals(5, students.size());
 
         Student student = studentService.findById(1L);
         Assertions.assertEquals("John", student.getName());

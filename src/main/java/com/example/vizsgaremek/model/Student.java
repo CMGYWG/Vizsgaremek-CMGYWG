@@ -24,7 +24,7 @@ public class Student {
     private int age;
     @NotBlank(message = "Course may not be blank")
     private String course;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id", referencedColumnName = "id")
     private Project project;
 }
