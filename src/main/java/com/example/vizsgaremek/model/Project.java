@@ -25,7 +25,7 @@ public class Project {
     private String teamName;
     @NotBlank(message = "Description may not be blank")
     private String description;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name="projects_mentors",
             joinColumns = @JoinColumn(name = "projects_id"),
