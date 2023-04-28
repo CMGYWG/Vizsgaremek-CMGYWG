@@ -23,7 +23,7 @@ public class Mentor {
     private Long id;
     @NotBlank(message = "Name may not be blank")
     private String name;
-    @ManyToMany(mappedBy = "mentors")
+    @ManyToMany(mappedBy = "mentors", fetch = FetchType.EAGER)
     /*@JoinTable(
             name="projects_mentors",
             joinColumns = @JoinColumn(name = "mentors_id"),
