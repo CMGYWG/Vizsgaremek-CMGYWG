@@ -1,17 +1,17 @@
 INSERT INTO mentor (name)
-VALUES ('Giovanni Bocacchio'),
-       ('F. Scott Fitzgerald'),
+VALUES ('Éva'),
+       ('Nóra'),
        ('Marc'),
        ('Lucas'),
        ('Paul'),
        ('Matthew');
 
 INSERT INTO project (description, project_name, team_name)
-VALUES ('Biblhhe', 'asd', 'ASD1'),
-       ('Bible', 'asd2', 'ASD2'),
-       ('Bible', 'asd3', 'ASD3'),
-       ('dgd', 'asd4', 'ASD34'),
-       ('Bibbble', 'asd5', 'ASD4');
+VALUES ('Project1', 'Testing', 'Thunderbird'),
+       ('Project2', 'JPA', 'Hogwarts'),
+       ('Project3', 'Testing', 'Team 3'),
+       ('Project5', 'Validating', 'XOXO'),
+       ('Project6', 'Java programing', '2nd chance');
 
 INSERT INTO projects_mentors(mentors_id, projects_id)
 VALUES (1, 2),
