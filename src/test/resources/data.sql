@@ -27,5 +27,4 @@ INSERT INTO student (age, course, name, project_id)
 VALUES (21, 'asd1', 'ASD1', 1),
        (22, 'asd1', 'ASD12', 1),
        (23, 'asd2', 'ASD13', 2),
-       (21, 'asd', 'ASD14', 3),
-       (20, 'asd', 'ASD15', 2);
+       (21, 'asd', 'ASD14', 3);

@@ -32,7 +32,7 @@ public class Project {
             inverseJoinColumns = @JoinColumn(name = "mentors_id"))
     @JsonIdentityReference(alwaysAsId = true)
     private List<Mentor> mentors;
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
     @JsonIdentityReference(alwaysAsId = true)
     private List<Student> students;
 
