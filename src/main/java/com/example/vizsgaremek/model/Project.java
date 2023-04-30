@@ -39,4 +39,7 @@ public class Project {
     public void addMentor(Mentor mentor){
         mentors.add(mentor);
     }
+    public void addStudent(Student student){
+        students.add(student);
+    }
 }

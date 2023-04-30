@@ -33,10 +33,12 @@ public class MentorService {
         if (!projectIds.isEmpty()) {
             projects = projectDAO.findAllById(projectIds);
         }
-        mentor.setProjects(projects);
+
         projects.forEach(a -> a.addMentor(mentor));
+        mentor.setProjects(projects);
 
         mentorDAO.save(mentor);
+        projectDAO.saveAll(projects);
     }
 
     public Mentor findById(Long id) {
@@ -77,5 +79,6 @@ public class MentorService {
 
 
         mentorDAO.save(mentor);
+        projectDAO.saveAll(projects);
     }
 }

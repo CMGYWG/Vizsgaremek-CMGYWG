@@ -48,8 +48,10 @@ public class ProjectService {
         project.setMentors(mentors);
 
         students.forEach(x->x.setProject(project));
-        mentors.forEach(a -> a.getProjects().add(project));
+        //mentors.forEach(a -> a.getProjects().add(project));
+        mentors.forEach(a -> a.addProject(project));
         projectDAO.save(project);
+        studentDAO.saveAll(students);
     }
 
     public Project findById(Long id) {
@@ -110,5 +112,6 @@ public class ProjectService {
         students.forEach(x->x.setProject(project));
         mentors.forEach(a -> a.getProjects().add(project));
         projectDAO.save(project);
+        studentDAO.saveAll(students);
     }
 }

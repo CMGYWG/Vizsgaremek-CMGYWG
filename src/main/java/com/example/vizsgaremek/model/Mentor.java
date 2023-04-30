@@ -30,4 +30,8 @@ public class Mentor {
             inverseJoinColumns = @JoinColumn(name = "projects_id"))*/
     @JsonIdentityReference(alwaysAsId = true)
     private List<Project> projects;
+
+    public void addProject(Project project){
+        projects.add(project);
+    }
 }
