@@ -1,7 +1,6 @@
 package com.example.vizsgaremek;
 
 import com.example.vizsgaremek.dao.ProjectDAO;
-import com.example.vizsgaremek.dao.StudentDAO;
 import com.example.vizsgaremek.model.Project;
 import com.example.vizsgaremek.model.Student;
 import com.example.vizsgaremek.model.dto.StudentDTO;
@@ -18,11 +17,9 @@ import java.util.List;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class StudentUnitTests {
     @Autowired
-    private StudentDAO studentDAO;
-    @Autowired
     private ProjectDAO projectDAO;
     @Autowired
-    private StudentService studentService = new StudentService(studentDAO, projectDAO);
+    private StudentService studentService;
 
     @Test
     void getAllStudents() {
