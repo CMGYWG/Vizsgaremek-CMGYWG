@@ -1,29 +1,31 @@
 package com.example.vizsgaremek;
 
-import com.example.vizsgaremek.dao.ProjectDAO;
 import com.example.vizsgaremek.model.Mentor;
 import com.example.vizsgaremek.model.Project;
-import com.example.vizsgaremek.model.Student;
 import com.example.vizsgaremek.model.dto.MentorDTO;
-import com.example.vizsgaremek.model.dto.StudentDTO;
 import com.example.vizsgaremek.service.MentorService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class MentorUnitTests {
+    @Value("${spring.datasource.name}")
+    private String datasourceName;
     @Autowired
     private MentorService mentorService;
-    @Autowired
-    private ProjectDAO projectDAO;
 
+    @AfterEach
+    void textForNiceFeedback(){
+        System.out.println("Please check if this test for the following datasource: " + datasourceName + " works fine.");
+    }
     @Test
     void getAllMentors() {
         List<Mentor> mentors = mentorService.findAll();
