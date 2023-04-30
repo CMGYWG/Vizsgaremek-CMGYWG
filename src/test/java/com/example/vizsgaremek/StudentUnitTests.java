@@ -55,7 +55,8 @@ class StudentUnitTests {
         Assertions.assertEquals(6, students.size());
 
         Student student = studentService.findById(6L);
-        Assertions.assertEquals("asd", student.getProject().getProjectName());
+        Assertions.assertEquals("Testing", student.getProject().getProjectName());
+        Assertions.assertEquals(3, student.getProject().getStudents().size());
     }
 
     @Test
@@ -66,6 +67,6 @@ class StudentUnitTests {
 
         Student student = studentService.findById(1L);
         Assertions.assertEquals("John", student.getName());
-        Assertions.assertEquals("asd", student.getProject().getProjectName());
+        Assertions.assertEquals("Testing", student.getProject().getProjectName());
     }
 }

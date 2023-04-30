@@ -35,7 +35,7 @@ public class MentorUnitTests {
         Mentor mentor = mentorService.findById(1L);
         List<Project> projects = mentor.getProjects();
         Assertions.assertEquals(1L, mentor.getId());
-        Assertions.assertEquals("Giovanni Bocacchio", mentor.getName());
+        Assertions.assertEquals("Éva", mentor.getName());
         Assertions.assertEquals(2, projects.size());
     }
 

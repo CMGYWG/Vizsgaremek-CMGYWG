@@ -38,7 +38,7 @@ public class ProjectUnitTests {
         Project project = projectService.findById(1L);
         List<Mentor> mentors = project.getMentors();
         List<Student> students = project.getStudents();
-        Assertions.assertEquals("asd", project.getProjectName());
+        Assertions.assertEquals("Testing", project.getProjectName());
         Assertions.assertEquals(4, mentors.size());
         Assertions.assertEquals(2, students.size());
     }
