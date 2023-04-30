@@ -51,13 +51,24 @@ public class MentorUnitTests {
         List<Long> longs = new ArrayList<>();
         longs.add(1L);
         longs.add(2L);
-        MentorDTO mentorDTO = new MentorDTO("Andrew",longs);
+        MentorDTO mentorDTO = new MentorDTO("Andrew", longs);
         mentorService.save(mentorDTO);
         List<Mentor> mentors = mentorService.findAll();
         Assertions.assertEquals(7, mentors.size());
 
         Mentor mentor = mentorService.findById(7L);
         Assertions.assertEquals("Andrew", mentor.getName());
+        Assertions.assertEquals(2, mentor.getProjects().size());
+    }
+
+    @Test
+    void updateMentor() {
+        mentorService.update(1L, new MentorDTO("Martin", List.of(1L, 2L)));
+        List<Mentor> mentors = mentorService.findAll();
+        Assertions.assertEquals(6, mentors.size());
+
+        Mentor mentor = mentorService.findById(1L);
+        Assertions.assertEquals("Martin", mentor.getName());
         Assertions.assertEquals(2, mentor.getProjects().size());
     }
 }
