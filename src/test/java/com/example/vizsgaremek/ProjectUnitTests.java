@@ -6,7 +6,6 @@ import com.example.vizsgaremek.model.Mentor;
 import com.example.vizsgaremek.model.Project;
 import com.example.vizsgaremek.model.Student;
 import com.example.vizsgaremek.model.dto.ProjectDTO;
-import com.example.vizsgaremek.model.dto.StudentDTO;
 import com.example.vizsgaremek.service.ProjectService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
