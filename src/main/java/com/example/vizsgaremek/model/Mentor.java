@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Mentor.class)
 @NamedEntityGraph(name = "projects_mentors", attributeNodes = @NamedAttributeNode("projects"))
 public class Mentor {
     @Id
@@ -28,7 +28,7 @@ public class Mentor {
             name="projects_mentors",
             joinColumns = @JoinColumn(name = "mentors_id"),
             inverseJoinColumns = @JoinColumn(name = "projects_id"))*/
-    @JsonIdentityReference(alwaysAsId = true)
+    //@JsonIdentityReference(alwaysAsId = true)
     private List<Project> projects;
 
     public void addProject(Project project){

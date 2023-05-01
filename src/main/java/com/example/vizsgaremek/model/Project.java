@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Project.class)
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +30,10 @@ public class Project {
             name="projects_mentors",
             joinColumns = @JoinColumn(name = "projects_id"),
             inverseJoinColumns = @JoinColumn(name = "mentors_id"))
-    @JsonIdentityReference(alwaysAsId = true)
+    //@JsonIdentityReference(alwaysAsId = true)
     private List<Mentor> mentors;
     @OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
-    @JsonIdentityReference(alwaysAsId = true)
+    //@JsonIdentityReference(alwaysAsId = true)
     private List<Student> students;
 
     public void addMentor(Mentor mentor){
