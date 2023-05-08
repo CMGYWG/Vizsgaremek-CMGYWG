@@ -24,10 +24,7 @@ public class Mentor {
     @NotBlank(message = "Name may not be blank")
     private String name;
     @ManyToMany(mappedBy = "mentors", fetch = FetchType.EAGER)
-    /*@JoinTable(
-            name="projects_mentors",
-            joinColumns = @JoinColumn(name = "mentors_id"),
-            inverseJoinColumns = @JoinColumn(name = "projects_id"))*/
+
     //@JsonIdentityReference(alwaysAsId = true)
     private List<Project> projects;
 

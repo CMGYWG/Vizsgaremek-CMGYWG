@@ -32,8 +32,9 @@ public class StudentService {
         Project project = projectDAO.findById(studentDTO.getProjectId()).orElse(null);
 
         student.setProject(project);
-        project.getStudents().add(student);
+        project.addStudent(student);
         studentDAO.save(student);
+        projectDAO.save(project);
     }
 
     public Student findById(Long id) {
@@ -69,5 +70,6 @@ public class StudentService {
         student.setProject(projectDAO.findById(studentDTO.getProjectId()).orElseThrow());
         project.getStudents().add(student);
         studentDAO.save(student);
+        projectDAO.save(project);
     }
 }

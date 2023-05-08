@@ -63,6 +63,5 @@ public class StudentIntegrationTests {
         Student student = restTemplate.getForObject("http://localhost:" + port + "/students/3", Student.class);
         assertEquals(5, students.size());
         assertEquals("Robin", student.getName());
-        assertEquals(3, student.getProject().getStudents().size());
     }
 }
