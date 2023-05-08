@@ -14,4 +14,4 @@ felülírása.
 
 ## CRUD végpontok
 
-Az \src\test mappában található http fájlok tartalmaznak lekérdezéseket a végpontokra.
+Az \src\test mappában található http fájlok tartalmaznak minta lekérdezéseket a végpontokra.
